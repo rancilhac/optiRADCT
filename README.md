@@ -12,7 +12,7 @@ OptiRADCT is a pipeline for optimizing Clustering Threshold values in Restrincti
  
 OptiRADCT works in two steps.
 
-1) optimization of the intra-samples Clustering Threshold (1_run_iCT.sh)
+*1) optimization of the intra-samples Clustering Threshold (1_run_iCT.sh)*
 
 in this first part, intra-samples clustering is performed with a user-specified range of thresholds (iCTs). Between samples clustering is subsequently completed in each assembly using a user-specified standardized threshold (bCT).
 
@@ -33,7 +33,7 @@ arguments:
 When executing this script, the user have to interactively type the iCTs to be tested, e.g.: ``0.70 0.80 0.90``
 This script will perform all assemblies and internaly execute harvest_stats.sh and 2_plot_iCT_stats.R, providing summary graphs in a pdf.
 
-2) optimization of the between-samples Clustering Threshold (3_run_bCT.sh)
+*2) optimization of the between-samples Clustering Threshold (3_run_bCT.sh)*
 
 In this second part, the clusters assembled at the previous step with the iCT identified as optimal are used to assemble loci with a range of between-samples Clustering Thresholds (bCTs).
 
