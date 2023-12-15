@@ -16,8 +16,8 @@ A typical RADseq analysis workflow with de novo assembly would include the follo
 
 - Step 1: Data demultiplexing and reads filtering. This can be performed by running steps 1 & 2 of ipyard, or using the process_radtags module of stacks.
 - Step 2: Optimization of the clustering parameters.
-      - Step 2.1: Optimization of the intra-samples clustering threshold, which is used to cluster reads within each samples.
-      - Step 2.2: Optimization of the between-samples clustering threshold, which is used to cluster consensus sequences across samples.
+  * Step 2.1: Optimization of the intra-samples clustering threshold, which is used to cluster reads within each samples.
+  * Step 2.2: Optimization of the between-samples clustering threshold, which is used to cluster consensus sequences across samples.
 - Step 3: Additionnal filtering of the dataset assembled with "optimal" parameters, and data formating. This is performed by re-running step 7 of ipyrad on the "best" assembly produced in Step 2.2
 - Step 4: Downstream analyses.
   
