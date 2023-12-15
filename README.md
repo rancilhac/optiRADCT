@@ -31,7 +31,7 @@ in this first part, intra-samples clustering is performed with a user-specified 
 
 arguments: 
 
--d | --data : full path to a directory containing the raw data (cf. ipyrad documentation for file names formating). Files are expected to be gzip-compressed (.gz extension) and all .gz files in the directory will be used.
+``-d | --data : full path to a directory containing the raw data (cf. ipyrad documentation for file names formating). Files are expected to be gzip-compressed (.gz extension) and all .gz files in the directory will be used. See ipyrad's documentation for more details on files naming conventions.
 
 -n | --name : a base name for ipyrad's assemblies.
 
@@ -53,7 +53,7 @@ arguments:
 
 -r | --ref : can be used to specify a reference tree in newick format to compare the RAxML trees to (using topological distances). Used only if -p is specified.
 
--h | --help : prints a help message and exits.
+-h | --help : prints a help message and exits.``
 
 
 This script will perform all assemblies and internaly execute harvest_stats.sh and 2_plot_iCT_stats.R, providing summary graphs in a pdf.
