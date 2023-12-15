@@ -1,16 +1,27 @@
 # optiRADCT
 
-OptiRADCT is a pipeline for optimizing Clustering Threshold values in Restrinction-site Associated DNA sequencing (RADseq) data assemblies performed with ipyrad for phylogenetic and phylogeography studies.
+OptiRADCT is a pipeline for optimizing Clustering Threshold values in Restrinction-site Associated DNA sequencing (RADseq) data assemblies performed with ipyrad for phylogenetic and phylogeography studies. It can be use to assemble RADseq datasets with a range of clustering parameters and vizualise how properties of the assemblies (e.g., proportion of informative sites and of missing data) and downstream phylogenetic inferences are affected by the values used.
 
 # Dependencies
 
   - ipyrad (https://ipyrad.readthedocs.io/en/latest/)
   - R (https://www.r-project.org/)
-  - raxml (optionnal, https://cme.h-its.org/exelixis/web/software/raxml/)
+  - raxml-PTHREADS (optionnal, https://cme.h-its.org/exelixis/web/software/raxml/)
+    
+The use of OptiRADCT presupposes a good understanding of the way ipyrad works. I strongly encourage the users to first get familiar with ipyrad's documentation.
 
  # Usage
- 
-OptiRADCT works in two steps.
+
+A typical RADseq analysis workflow with de novo assembly would include the following steps:
+
+- Step 1: Data demultiplexing and reads filtering. This can be performed by running steps 1 & 2 of ipyard, or using the process_radtags module of stacks.
+- Step 2: Optimization of the clustering parameters.
+      - Step 2.1: Optimization of the intra-samples clustering threshold, which is used to cluster reads within each samples.
+      - Step 2.2: Optimization of the between-samples clustering threshold, which is used to cluster consensus sequences across samples.
+- Step 3: Additionnal filtering of the dataset assembled with "optimal" parameters, and data formating. This is performed by re-running step 7 of ipyrad on the "best" assembly produced in Step 2.2
+- Step 4: Downstream analyses.
+  
+OptiRADCT is meant to facilitate data exploration and vizualisation for the optimization step 2. Because ipyrad encodes a unique clustering threshold value for intra-samples and across-samples clustering, this is done by running ipyrad sequentially twice. For more detailed explanations, refer to Rancilhac et al. (2023) BioRxiv.
 
 **1) optimization of the intra-samples Clustering Threshold (1_run_iCT.sh)**
 
