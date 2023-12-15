@@ -51,7 +51,7 @@ arguments:
 
 -p | --tree : if this option is specified, maximum likelihood trees will be inferred with RAxML for each iCT.
 
--r | --ref : can be used to specify a reference tree in newick format to compare the RAxML trees to (using topological distances). Used only if -p is specified.
+-r | --ref : can be used to specify a reference tree in newick format to compare the RAxML trees to (using topological distances). The tip labels must be identical to the samples names in the assemblies. Used only if -p is specified.
 
 -h | --help : prints a help message and exits.
 
@@ -79,7 +79,11 @@ arguments:
 
 -p | --tree : if this option is specified, maximum likelihood trees will be inferred with RAxML for each iCT.
 
--r | --ref : can be used to specify a reference tree in newick format to compare the RAxML trees to (using topological distances). Used only if -p is specified.
+-r | --ref : can be used to specify a reference tree in newick format to compare the RAxML trees to (using topological distances). The tip labels must be identical to the samples names in the assemblies. Used only if -p is specified.
 
 -h | --help : prints a help message and exits.
 
+The outputs are similar to that of the previous step, and saved in the directories ``stats_bCT`` and ``trees_bCT``
+
+
+**Note:** the R scripts, harvest_stats.sh and 5_infer_trees.sh are executed internally, so that only ``1_run_iCT.sh`` and ``3_run_bCT.sh`` need to be run by the user.
