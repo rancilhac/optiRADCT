@@ -31,13 +31,13 @@ in this first part, intra-samples clustering is performed with a user-specified 
 
 arguments: 
 
-`-d | --data : full path to a directory containing the raw data (cf. ipyrad documentation for file names formating). Files are expected to be gzip-compressed (.gz extension) and all .gz files in the directory will be used. See ipyrad's documentation for more details on files naming conventions.
+-d | --data : full path to a directory containing the demultiplexed data. Files are expected to be gzip-compressed (.gz extension) and all .gz files in the directory will be used. See ipyrad's documentation for more details on files naming conventions.
 
 -n | --name : a base name for ipyrad's assemblies.
 
 -w | --work : full path to working directory where ipyrad assemblies and optiRADCT will be stored 
 
--u | --iCT : the range of iCTs to test, provided between apostrophes, e.g. '0.80 0.85 0.90'.
+-i | --iCT : the range of iCTs to test, provided between apostrophes, e.g. '0.80 0.85 0.90'.
 
 -b | --bCT : standardized clustering threshold to be used for between-samples clustering (e.g. 0.90) (optional)
 
@@ -53,10 +53,9 @@ arguments:
 
 -r | --ref : can be used to specify a reference tree in newick format to compare the RAxML trees to (using topological distances). Used only if -p is specified.
 
--h | --help : prints a help message and exits.`
+-h | --help : prints a help message and exits.
 
-
-This script will perform all assemblies and internaly execute harvest_stats.sh and 2_plot_iCT_stats.R, providing summary graphs in a pdf.
+This script will execute ipyrad's steps 1-3 for each of the iCTs specified with -i. If -b is specified, it will then finish each ipyrad run (i.e., run steps 4-7) with the standardized bCT. Assembly metrics for the clusters and loci are harvested internaly with harvest_stats.sh and plots are produced. The assembly metrics are saved in the directory ``stats_iCT``, and plots vizualizing the different metrics can be found in ``stats_iCT/iCT_plots.pdf``. Finally, if -p if specified, a directory ``trees_iCT`` is created, containing the assemblies concatenation matrices in phylip format, the RAxML trees and plots showing changes in branch length and bootstrap support in `` ``.
 
 **2) optimization of the between-samples Clustering Threshold (3_run_bCT.sh)**
 
