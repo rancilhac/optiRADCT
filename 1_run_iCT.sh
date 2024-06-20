@@ -177,7 +177,7 @@ cd ${WORK}
 mkdir trees_iCT
 cp *iCT*outfiles/*.phy trees_iCT
 cd trees_iCT
-bash ${SCRIPTS}/05_infer_trees.sh -T ${THREADS} -b 3 -m GTRGAMMA
+bash ${SCRIPTS}/5_infer_trees.sh -T ${THREADS} -b 3 -m GTRGAMMA
 cat RAxML_bipartitions.* > iCT.trees
 Rscript ${SCRIPTS}/2-1_plot_iCT_trees.R ${WORK}/trees_iCT iCT.trees ${WORK}/ict.list ${REF}
 echo "trees plots are stored in" $(ls ${WORK}/trees_iCT/*.pdf)

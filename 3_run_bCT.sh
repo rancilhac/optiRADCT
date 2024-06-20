@@ -131,9 +131,9 @@ cd ${WORK}
 mkdir trees_bCT
 cp *bCT*outfiles/*.phy trees_bCT
 cd trees_bCT
-bash ${SCRIPTS}/05_infer_trees.sh -T ${THREADS} -b 3 -m GTRGAMMA
+bash ${SCRIPTS}/5_infer_trees.sh -T ${THREADS} -b 3 -m GTRGAMMA
 cat RAxML_bipartitions.* > bCT.trees 
-Rscript ${SCRIPTS}/2-1_plot_iCT_trees.R ${WORK}/trees_bCT bCT.trees ${WORK}/bct.list ${REF}
+Rscript ${SCRIPTS}/4-1_plot_bCT_trees.R ${WORK}/trees_bCT bCT.trees ${WORK}/bct.list ${REF}
 echo "trees plots are stored in" $(ls ${WORK}/trees_bCT/*.pdf)
 fi
 
