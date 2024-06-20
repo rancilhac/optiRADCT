@@ -64,33 +64,32 @@ boxplot(filtered_by_maxH~threshold, data=s5, xlab="clustering threshold", ylab="
 
 par(mar=c(5.1, 4.1, 4.1, 5.7), xpd=TRUE)
 plot(index, loci_4, pch=19, cex=0.3, ylim=c(min_c, max_c), ylab="number of loci", xlab="iCT", 
-     main="Number of loci in the assembly")
-points(index, loci_50, pch=19, cex=0.3, col="red")
-points(index, loci_80, pch=19, cex=0.3, col="blue")
-legend("topright", inset=c(-0.28,0), legend=c("all","50%", "80%"), pch=c(19,19,19), col=c("black", "red", "blue"))
+     main="Number of loci in the assembly", type="b")
+lines(index, loci_50, pch=19, cex=0.3, col="red", type="b")
+lines(index, loci_80, pch=19, cex=0.3, col="blue", type="b")
+legend("bottomleft", legend=c("all","50%", "80%"), pch=c(19,19,19), col=c("black", "red", "blue"))
 
 par(mar=c(5.1, 4.1, 4.1, 5.7), xpd=TRUE)
 plot(index, prop_50, pch=19, cex=0.3, ylim=c(min_p, max_p), col="blue",
-     ylab="proportion of the loci", xlab="iCT", main="Proportion of shared loci")
-points(index, prop_80, pch=19, cex=0.3, ylim=c(min_p, max_p), col="red")
-legend("topright", inset=c(-0.28,0), legend=c("50%", "80%"), pch=c(19,19), col=c("red", "blue"))
+     ylab="proportion of the loci", xlab="iCT", main="Proportion of shared loci", type="b")
+lines(index, prop_80, pch=19, cex=0.3, ylim=c(min_p, max_p), col="red", type="b")
+legend("bottomleft", legend=c("50%", "80%"), pch=c(19,19), col=c("red", "blue"))
 
 plot(delta_p50~index_diff, pch=19, cex=0.5, ylim=c(min(delta_p50), max(delta_p50)), col="blue",
-     ylab="delta loci 50%", xlab="delta iCT", main="50%")
+     ylab="delta loci 50%", xlab="delta iCT", main="50%", type="b")
 plot(delta_p80~index_diff, pch=19, cex=0.5, ylim=c(min(delta_p80), max(delta_p80)), col="red",
-     ylab="delta loci 80%", xlab="delta iCT", main="80%")
+     ylab="delta loci 80%", xlab="delta iCT", main="80%", type="b")
 
 par(mar=c(5.1, 4.1, 4.1, 4.1), xpd=TRUE)
 plot(missing[,2]~missing[,3], pch=19, cex=0.5, ylab="% of missing data", xlab="iCT", col="blue",
-     ylim=c(min_m, max_m))
-points(missing[,1]~missing[,3], pch=19, cex=0.5, col="red")
-legend("top", inset=c(-0.52,-0.22), legend=c("Concatenation", "SNPs"), pch=c(19,19), col=c("blue", "red"))
+     ylim=c(min_m, max_m), type="b")
+lines(missing[,1]~missing[,3], pch=19, cex=0.5, col="red", type="b")
+legend("topleft", legend=c("Concatenation", "SNPs"), pch=c(19,19), col=c("blue", "red"))
 
 par(mar=c(5.1, 4.1, 4.1, 4.1), xpd=TRUE)
 plot(delta_m_SNP~index_diff, pch=19, cex=0.5, ylim=c(min_dm, max_dm), ylab="delta % missing",
-     xlab="delta iCT", col="red")
-points(delta_m_SEQ~index_diff, pch=19, cex=0.5, col="blue")
-legend("top", inset=c(-0.52,-0.22), legend=c("Concatenation", "SNPs"), pch=c(19,19), col=c("blue", "red"))
+     xlab="delta iCT", col="red", type="b")
+lines(delta_m_SEQ~index_diff, pch=19, cex=0.5, col="blue", type="b")
+legend("topleft", legend=c("Concatenation", "SNPs"), pch=c(19,19), col=c("blue", "red"))
 
 dev.off()
-
